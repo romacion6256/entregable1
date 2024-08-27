@@ -1,3 +1,4 @@
+import os
 import csv
 import random
 from itertools import chain
@@ -6,6 +7,7 @@ from typing import List, Generator, Tuple, Callable
 
 # CARGA DE PREGUNTAS
 def cargar_preguntas(ruta_archivo_csv: str) -> Generator[Tuple[str, List[str], str], None, None]:
+    ruta_archivo_csv = os.path.join(os.path.dirname(__file__), 'trivia_questions.csv')
     with open(ruta_archivo_csv, 'r', encoding='utf-8') as archivo:  # Especifica la codificación como 'utf-8'
         lector = csv.reader(archivo)
         next(lector)  # Saltar el encabezado
