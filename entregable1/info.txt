@@ -1,0 +1,5 @@
+Integrantes del grupo:
+Lucas Formento: 5565892-9
+Nicolás Tognola: 5382148-5
+
+# Como ejecutar el entregable:

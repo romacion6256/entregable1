@@ -7,13 +7,14 @@ from typing import List, Generator, Tuple, Callable
 
 # CARGA DE PREGUNTAS
 def cargar_preguntas(ruta_archivo_csv: str) -> Generator[Tuple[str, List[str], str], None, None]:
-    ruta_archivo_csv = os.path.join(os.path.dirname(__file__), 'trivia_questions.csv') # Esto asegura que ruta_archivo_csv siempre apunte al archivo correcto sin importar desde dónde se ejecute el script
+    # Se usa os.path para construir rutas relativas de manera robusta
+    ruta_archivo_csv = os.path.join(os.path.dirname(__file__), 'trivia_questions.csv') # Esto asegura que ruta_archivo_csv siempre apunte al archivo correcto sin importar desde dónde se ejecute el script 
     with open(ruta_archivo_csv, 'r', encoding='utf-8') as archivo:  # Especifica la codificación como 'utf-8'
         lector = csv.reader(archivo)
         next(lector)  # Saltar el encabezado
         for linea in lector:
-            pregunta, *opciones, correcta = linea
-            yield pregunta, opciones, correcta
+            pregunta, *opciones, correcta = linea 
+            yield pregunta, opciones, correcta 
 
 # DECORADOR
 def decorador_documento(descripcion: str):
