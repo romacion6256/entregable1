@@ -44,7 +44,6 @@ def correr_trivia(preguntas_seleccionadas: List[Tuple[str, List[str], str]]) -> 
     return puntaje
 
 
-
 # PREGUNTAR AL USUARIO SI QUIERE JUGAR DE NUEVO
 @decorador_documento("Le pregunta al usuario si quiere jugar de nuevo")
 def preguntar_jugar_de_nuevo() -> bool:
