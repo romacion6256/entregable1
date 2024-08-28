@@ -66,19 +66,22 @@ def respuestas_correctas(preguntas: List[Tuple[str, List[str], str]]) -> List[st
 def main():
     preguntas = list(cargar_preguntas('trivia_questions.csv'))
     
-    while True:
-        preguntas_seleccionadas = seleccionar_preguntas_aleatoreas(preguntas)
-        puntajes = correr_trivia(preguntas_seleccionadas)
-        
-        puntaje_total = reduce(lambda x, y: x + y, puntajes)  
-        print(f"Tu puntaje final es: {puntaje_total}")
 
-        todas_las_respuestas = respuestas_correctas(preguntas_seleccionadas)
-        print("Todas las respuestas correctas en este juego fueron:")
-        print(todas_las_respuestas)
+    preguntas_seleccionadas = seleccionar_preguntas_aleatoreas(preguntas)
+    puntajes = correr_trivia(preguntas_seleccionadas)
         
-        if not preguntar_jugar_de_nuevo():
-            break
+    puntaje_total = reduce(lambda x, y: x + y, puntajes)  
+    print(f"Tu puntaje final es: {puntaje_total}")
+
+    todas_las_respuestas = respuestas_correctas(preguntas_seleccionadas)
+    print("Todas las respuestas correctas en este juego fueron:")
+    print(todas_las_respuestas)
+    
+        
+    if preguntar_jugar_de_nuevo():
+        return main()
+    else:
+        return print("Gracias por jugar")
 
 if __name__ == "__main__":    
     main()
