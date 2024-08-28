@@ -8,13 +8,12 @@ from typing import List, Generator, Tuple, Callable
 # CARGA DE PREGUNTAS
 def cargar_preguntas(ruta_archivo_csv: str) -> Generator[Tuple[str, List[str], str], None, None]:
     # Se usa os.path para construir rutas relativas de manera robusta
-    ruta_archivo_csv = os.path.join(os.path.dirname(__file__), 'trivia_questions.csv') # Esto asegura que ruta_archivo_csv siempre apunte al archivo correcto sin importar desde dónde se ejecute el script 
-    with open(ruta_archivo_csv, 'r', encoding='utf-8') as archivo:  # Especifica la codificación como 'utf-8'
+    ruta_archivo_csv = os.path.join(os.path.dirname(__file__), ruta_archivo_csv)
+    with open(ruta_archivo_csv, 'r', encoding='utf-8') as archivo:
         lector = csv.reader(archivo)
         next(lector)  # Saltar el encabezado
-        for linea in lector:
-            pregunta, *opciones, correcta = linea 
-            yield pregunta, opciones, correcta 
+        # Usar yield y map para devolver cada línea transformada sin un bucle explícito
+        yield from map(lambda x: (x[0], x[1:-1], x[-1]), lector)
 
 # DECORADOR
 def decorador_documento(descripcion: str):
@@ -31,20 +30,19 @@ def seleccionar_preguntas_aleatoreas(preguntas: List[Tuple[str, List[str], str]]
 # CORRER EL JUEGO Y SISTEMA DE PUNTUACION
 @decorador_documento("Corre el juego y calcula el puntaje")
 def correr_trivia(preguntas_seleccionadas: List[Tuple[str, List[str], str]]) -> List[int]:
-    puntaje = []
-    
-    for pregunta, opciones, correcta in preguntas_seleccionadas:
+    # Función para procesar una sola pregunta
+    def procesar_pregunta(pregunta, opciones, correcta):
         print(pregunta)
-        for i, opcion in enumerate(opciones):
-            print(f"{i + 1}. {opcion}")
+        list(map(lambda i_opcion: print(f"{i_opcion[0] + 1}. {i_opcion[1]}"), enumerate(opciones)))
         
         answer = input("Seleccione la opción correcta (1/2/3): ")
-        if opciones[int(answer) - 1] == correcta:
-            puntaje.append(10)
-        else:
-            puntaje.append(0)
-            
-    return puntaje  # Asegúrate de que esta función siempre devuelva una lista
+        return 10 if opciones[int(answer) - 1] == correcta else 0
+
+    # Usamos map para aplicar procesar_pregunta a cada conjunto de pregunta, opciones y correcta
+    puntaje = list(map(lambda po: procesar_pregunta(po[0], po[1], po[2]), preguntas_seleccionadas))
+    
+    return puntaje
+
 
 
 # PREGUNTAR AL USUARIO SI QUIERE JUGAR DE NUEVO
@@ -83,5 +81,5 @@ def main():
         if not preguntar_jugar_de_nuevo():
             break
 
-if __name__ == "__main__":
+if __name__ == "__main__":    
     main()
