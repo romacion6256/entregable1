@@ -75,7 +75,7 @@ def main():
 
     todas_las_respuestas = respuestas_correctas(preguntas_seleccionadas)
     print("Todas las respuestas correctas en este juego fueron:")
-    print(todas_las_respuestas)
+    list(map(lambda x: print(f"{x[0] + 1}. {x[1]}"), enumerate(todas_las_respuestas)))
     
         
     if preguntar_jugar_de_nuevo():
