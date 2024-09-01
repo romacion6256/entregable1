@@ -39,10 +39,9 @@ def correr_trivia(preguntas_seleccionadas: List[Tuple[str, List[str], str]]) -> 
         return 10 if opciones[int(answer) - 1] == correcta else 0
 
     # Usamos map para aplicar procesar_pregunta a cada conjunto de pregunta, opciones y correcta
-    puntaje = list(map(lambda po: procesar_pregunta(po[0], po[1], po[2]), preguntas_seleccionadas))
+    puntaje = list(map(lambda y: procesar_pregunta(y[0], y[1], y[2]), preguntas_seleccionadas))
     
     return puntaje
-
 
 # PREGUNTAR AL USUARIO SI QUIERE JUGAR DE NUEVO
 @decorador_documento("Le pregunta al usuario si quiere jugar de nuevo")
@@ -66,7 +65,6 @@ def respuestas_correctas(preguntas: List[Tuple[str, List[str], str]]) -> List[st
 def main():
     preguntas = list(cargar_preguntas('trivia_questions.csv'))
     
-
     preguntas_seleccionadas = seleccionar_preguntas_aleatoreas(preguntas)
     puntajes = correr_trivia(preguntas_seleccionadas)
         
@@ -76,8 +74,7 @@ def main():
     todas_las_respuestas = respuestas_correctas(preguntas_seleccionadas)
     print("Todas las respuestas correctas en este juego fueron:")
     list(map(lambda x: print(f"{x[0] + 1}. {x[1]}"), enumerate(todas_las_respuestas)))
-    
-        
+      
     if preguntar_jugar_de_nuevo():
         return main()
     else:
