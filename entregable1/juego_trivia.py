@@ -18,7 +18,7 @@ def cargar_preguntas(ruta_archivo_csv: str) -> Generator[Tuple[str, List[str], s
 # DECORADOR
 def decorador_documento(descripcion: str):
     def wrapper(func: Callable):
-        func.__doc__ = descripcion
+        func.__doc__ = descripcion 
         return func
     return wrapper
 
@@ -51,7 +51,8 @@ def preguntar_jugar_de_nuevo() -> bool:
         return True
     elif respuesta == 'n':
         return False
-    else:
+    elif respuesta != 's' or respuesta != 'n':
+        print("Por favor, ingrese 's' para sí o 'n' para no.")
         return preguntar_jugar_de_nuevo()
     
 # COMBINAR TODAS LAS RESPUESTAS POSIBLES EN UNA SOLA LISTA
