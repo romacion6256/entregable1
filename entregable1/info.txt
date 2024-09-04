@@ -2,4 +2,9 @@ Integrantes del grupo:
 Lucas Formento: 5565892-9
 Nicolás Tognola: 5382148-5
 
-# Como ejecutar el entregable:
+# Como ejecutar el entregable: Para ejecutar el codigo lo unico que se debe hacer es presionar el boton de "run" en el editor
+de codigo en el que se este trabajando. Si el programa funciona correctamente, deberia desplegarse unos mensajes de bienvenida
+y luego imprimirse la primera pregunta. Luego de elegir su respuesta, se imprime la segunda y asi sucesivamente hasta la ultima.
+Cuando el juego finaliza, se muestra el puntaje, las respuestas correctas de cada pregunta y por ultimo, un mensaje preguntandole al
+usuario si desea continuar jugando. Si la respuesta es "s" (si), comienza el juevo nuevamente, si la respuesta es "n" (no), imprime 
+un mensaje de despedida y deja de correr el programa.
