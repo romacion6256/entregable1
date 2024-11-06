@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module juego_trivia</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">juego_trivia</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Clucas%5Conedrive%5Cescritorio%5Cum%5C2024%5C2do%20semestre%5Cprogramacion%20avanzada%5Centregable1%5Centregable1%5Cjuego_trivia.py">c:\users\lucas\onedrive\escritorio\um\2024\2do semestre\programacion avanzada\entregable1\entregable1\juego_trivia.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="csv.html">csv</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="random.html">random</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-cargar_preguntas"><strong>cargar_preguntas</strong></a>(ruta_archivo_csv: str) -&gt; Generator[Tuple[str, List[str], str], NoneType, NoneType]</dt><dd><span class="code">#&nbsp;CARGA&nbsp;DE&nbsp;PREGUNTAS</span></dd></dl>
+ <dl><dt><a name="-correr_trivia"><strong>correr_trivia</strong></a>(preguntas_seleccionadas: List[Tuple[str, List[str], str]]) -&gt; List[int]</dt><dd><span class="code">Corre&nbsp;el&nbsp;juego&nbsp;y&nbsp;calcula&nbsp;el&nbsp;puntaje</span></dd></dl>
+ <dl><dt><a name="-decorador_documento"><strong>decorador_documento</strong></a>(descripcion: str)</dt><dd><span class="code">#&nbsp;DECORADOR</span></dd></dl>
+ <dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><span class="code">Función&nbsp;principal&nbsp;que&nbsp;corre&nbsp;la&nbsp;trivia</span></dd></dl>
+ <dl><dt><a name="-preguntar_jugar_de_nuevo"><strong>preguntar_jugar_de_nuevo</strong></a>() -&gt; bool</dt><dd><span class="code">Le&nbsp;pregunta&nbsp;al&nbsp;usuario&nbsp;si&nbsp;quiere&nbsp;jugar&nbsp;de&nbsp;nuevo</span></dd></dl>
+ <dl><dt><a name="-reduce"><strong>reduce</strong></a>(...)</dt><dd><span class="code"><a href="#-reduce">reduce</a>(function,&nbsp;iterable[,&nbsp;initial])&nbsp;-&gt;&nbsp;value<br>
+&nbsp;<br>
+Apply&nbsp;a&nbsp;function&nbsp;of&nbsp;two&nbsp;arguments&nbsp;cumulatively&nbsp;to&nbsp;the&nbsp;items&nbsp;of&nbsp;a&nbsp;sequence<br>
+or&nbsp;iterable,&nbsp;from&nbsp;left&nbsp;to&nbsp;right,&nbsp;so&nbsp;as&nbsp;to&nbsp;reduce&nbsp;the&nbsp;iterable&nbsp;to&nbsp;a&nbsp;single<br>
+value.&nbsp;&nbsp;For&nbsp;example,&nbsp;<a href="#-reduce">reduce</a>(lambda&nbsp;x,&nbsp;y:&nbsp;x+y,&nbsp;[1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5])&nbsp;calculates<br>
+((((1+2)+3)+4)+5).&nbsp;&nbsp;If&nbsp;initial&nbsp;is&nbsp;present,&nbsp;it&nbsp;is&nbsp;placed&nbsp;before&nbsp;the&nbsp;items<br>
+of&nbsp;the&nbsp;iterable&nbsp;in&nbsp;the&nbsp;calculation,&nbsp;and&nbsp;serves&nbsp;as&nbsp;a&nbsp;default&nbsp;when&nbsp;the<br>
+iterable&nbsp;is&nbsp;empty.</span></dd></dl>
+ <dl><dt><a name="-respuestas_correctas"><strong>respuestas_correctas</strong></a>(preguntas: List[Tuple[str, List[str], str]]) -&gt; List[str]</dt><dd><span class="code">Combine&nbsp;all&nbsp;possible&nbsp;answers&nbsp;into&nbsp;a&nbsp;single&nbsp;list</span></dd></dl>
+ <dl><dt><a name="-seleccionar_preguntas_aleatoreas"><strong>seleccionar_preguntas_aleatoreas</strong></a>(preguntas: List[Tuple[str, List[str], str]]) -&gt; List[Tuple[str, List[str], str]]</dt><dd><span class="code">Selecciona&nbsp;5&nbsp;preguntas&nbsp;aleatorias&nbsp;del&nbsp;documento&nbsp;trivia_questions.csv</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>Callable</strong> = typing.Callable<br>
+<strong>Generator</strong> = typing.Generator<br>
+<strong>List</strong> = typing.List<br>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
+</body></html>
